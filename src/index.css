@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/assets/SFRegular.otf") format("opentype");
+  font-weight: 300 449;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/assets/SFMedium.woff2") format("woff2");
+  font-weight: 450 599;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/assets/SFBold.woff2") format("woff2");
+  font-weight: 600 900;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+}

@@ -1,16 +1,54 @@
-# React + Vite
+# carpe
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**A desktop-OS interface in the browser** — draggable windows, a tiled icon grid,
+and retro window chrome, built as a React front-end study.
 
-Currently, two official plugins are available:
+## Attribution
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This is a **rebuild of [bychudy.com](https://bychudy.com)'s interface**, done to
+study how the desktop-metaphor layout and window management are put together. The
+design is not mine. `package.json` still carries the working name `bychudy-clone`.
 
-## React Compiler
+If you're looking for original design work, this isn't it — it's a reimplementation
+exercise, and it's published as one.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What it does
 
-## Expanding the Oxlint configuration
+- Windows that open, focus, and drag, with a z-order stack
+- A tiled icon grid as the desktop surface
+- Per-window content driven by data rather than hardcoded markup (`src/data/windowContent.js`)
+- A projects registry (`src/data/projects.js`)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Stack
+
+React 19 · Vite 8 · Oxlint. No UI framework — layout and chrome are hand-written CSS.
+
+## Run it
+
+```bash
+git clone https://github.com/Zephyr4772/carpe.git
+cd carpe
+npm install
+npm run dev
+```
+
+`npm run build`, `npm run preview`, `npm run lint` also available.
+
+## Layout
+
+```
+src/
+  components/
+    ProjectWindow.jsx   a window frame + its content
+    Tile.jsx            desktop icon
+  data/
+    windowContent.js    window body content
+    projects.js         project registry
+  App.css               window chrome, desktop surface
+```
+
+## Limitations
+
+- Desktop-oriented: the window metaphor doesn't adapt well to small screens.
+- No tests.
+- Window state is in-memory — nothing persists across reloads.
